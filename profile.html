@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>::HOME::</title>
+		<link rel="stylesheet" href="css/profile.css">
+		<link rel="stylesheet" href="css/cropbox.css" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="css/progress.css">
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="js/home.js"></script>
+		<script src="js/profile.js"></script>
+<script src="js/cropbox.js"></script>		
+		<script type="text/javascript" src="js/rainbow.min.js"></script>
+		<script type="text/javascript" src="js/jquery-asPieProgress.js"></script>
+		
+		
+		
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script type="text/javascript">
+    $(window).load(function() {
+    	var update=0;
+    	prog=0;
+        var options =
+        {
+            thumbBox: '.thumbBox',
+            spinner: '.spinner',
+            imgSrc: 'avatar.png'
+        }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#file').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        $('#btnCrop').on('click', function(){
+            var img = cropper.getDataURL();
+            update++;
+            if (update==1) {
+            	prog+=50;
+	   	$('.pie_progress').asPieProgress('go',prog);
+            };
+            // $('.cropped').append('<img src="'+img+'">');
+            $(".cropp img").attr('src', img);
+
+        })
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        })
+    });
+</script>
+
+		<script>
+		// Note: This example requires that you consent to location sharing when
+		// prompted by your browser. If you see a blank space instead of the map, this
+		// is probably because you have denied permission for location sharing.
+		var map;
+
+		function initialize() {
+		var mapOptions = {
+		zoom: 14
+
+		};
+
+		map = new google.maps.Map(document.getElementById('googleMap'),mapOptions);
+		
+		// Try HTML5 geolocation
+		if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		var infowindow = new google.maps.InfoWindow({
+		map: map,
+		position: pos,
+		content: 'Location found using HTML5.'
+		});
+		map.setCenter(pos);
+		}, function() {
+		handleNoGeolocation(true);
+		});
+		} else {
+		// Browser doesn't support Geolocation
+		handleNoGeolocation(false);
+		}
+		}
+		function handleNoGeolocation(errorFlag) {
+		if (errorFlag) {
+		var content = 'Error: The Geolocation service failed.';
+		} else {
+		var content = 'Error: Your browser doesn\'t support geolocation.';
+		}
+		var options = {
+		map: map,
+		position: new google.maps.LatLng(60, 105),
+		content: content
+		};
+		var infowindow = new google.maps.InfoWindow(options);
+		map.setCenter(options.position);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+
+		</script>
+		<script>
+		$(document).ready(function () {
+		//
+		$('.pie_progress').asPieProgress({
+		'namespace': 'pie_progress',
+		
+		goal:50
+		});
+		
+		$('#button_go_percentage').on('click', function(){
+		$('.pie_progress').asPieProgress('go','50%');
+		});
+		
+		//update progress bar
+		//end of update progress bar
+		
+		//
+		$('.tab-panel .tab-link a').on('click', function (e) {
+		var currentAttrValue = jQuery(this).attr('href');
+
+		// Show/Hide Tabs
+		//Fade effect
+		//   $('.tab-panel ' + currentAttrValue).fadeIn(1000).siblings().hide();
+		//Sliding effect
+		$('.tab-panel ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+		//Sliding up-down effect
+		// $('.tab-panel ' + currentAttrValue).siblings().slideUp(400);
+		// $('.tab-panel ' + currentAttrValue).delay(400).slideDown(400);
+		// Change/remove current tab to active
+		$(this).parent('li').addClass('active').siblings().removeClass('active');
+		e.preventDefault();
+		});
+		});
+		</script>
+		<script type="text/javascript">
+		jQuery(function($){
+		$( "#datepicker-12" ).datepicker({
+		minDate: 0 ,
+		});
+		
+		});
+		</script>
+		<style type="text/css">
+		/* Apply these styles only when #preview-pane has
+		been placed within the Jcrop widget */
+		.jcrop-holder #preview-pane {
+		display: block;
+		position: absolute;
+		z-index: 2000;
+		top: 10px;
+		right: -280px;
+		padding: 6px;
+		border: 1px rgba(0,0,0,.4) solid;
+		background-color: white;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		-webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+		box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+		}
+		/* The Javascript code will set the aspect ratio of the crop
+		area based on the size of the thumbnail preview,
+		specified here */
+		#preview-pane .preview-container {
+			border-radius:100px;
+		width: 250px;
+		height: 170px;
+		overflow: hidden;
+		}
+		.modaal{
+		position:fixed;
+		top:0;
+		bottom:0;
+		right: 0;
+		left: 0;
+		background:rgba(0, 0, 0, 0.7);
+		padding:10%;
+		display:none;
+		}
+		</style>
+	</head>
+	<body >
+		<div class="container">
+			
+			<datalist id="languages">
+  <option value="HTML">HTML</option>
+  <option value="CSS">CSS</option>
+  <option value="JavaScript">Javascript</option>
+  <option value="Java">Java</option>
+  <option value="Ruby">Ruby</option>
+  <option value="PHP">PHP</option>
+  <option value="Go">Go</option>
+  <option value="Erlang">Erlang</option>
+  <option value="Python">Phython</option>
+  <option value="C">C</option>
+  <option value="C#">C#</option>
+  <option value="C++">C++</option>
+</datalist>
+			
+			<div class="header">
+				<div class="menu">
+					<ul>
+						<li><a href="home.html"><img src="images/home.png" alt=""><strong>HOME</strong></a></li>
+						<li><a href="quiz.html"><img src="images/quiz.png" alt=""><strong>QUIZ</strong></a></li>
+						<li><a href="profile.html"><img src="images/profile1.png" alt=""><strong class="active">PROFILE</strong></a></li>
+						<li><a href="form.html"><img src="images/form.png" alt=""><strong>FORM</strong></a></li>
+					</ul>
+					
+				</div>
+			</div>
+			<div class="content">
+			<h1>PROFILE</h1>
+				<div class="coverpic">
+					<img src="" alt="coverpic" class="coverpicture">
+					<button id="update">UPDATE<img src="images/setting.png" alt="" width="15">
+					</button>
+					<input type="file" id="logo" />
+				</div>
+				<div class="profilesetter">
+					<div class="setpicture">
+						
+				<div class="modaal">
+    <div class="imageBox">
+        <div class="thumbBox"></div>
+        <div class="spinner" style="display: none">Loading...</div>
+    </div>
+    <div class="action">
+        <input type="file" id="file" style="float:left; width: 250px">
+        <input type="button" id="btnCrop" value="Crop" >
+        <input type="button" id="btnZoomIn" value="+" >
+        <input type="button" id="btnZoomOut" value="-" >
+        <input type="button" id="cancel" value="CANCEL" >
+    </div>
+</div>	
+
+
+    <div class="cropp">
+<img src="images/home.png" alt="">
+    </div>
+						
+					</div>
+					<div class="svg"> <div class="pie_progress" role="progressbar" data-goal="100" aria-valuemin="0" aria-valuemax="100">
+						<span class="pie_progress__number">0%</span>
+					</div>
+				</div>
+			</div>
+		
+			<div class="panel" style="clear:both">
+				
+				<div class="tab-panel">
+					<ul class="tab-link">
+						<li class="active"><a href="#FirstTab">DATE</a></li>
+						<li><a href="#SecondTab">TOGGLE</a></li>
+						<li><a href="#ThirdTab">COMBOBOX</a></li>
+						<li><a href="#FourthTab">MAP</a></li>
+					</ul>
+					<div class="content-area">
+						<div id="FirstTab" class="active">
+							<p>Enter Date: <input type="text" id="datepicker-12"></p>
+						</div>
+						<div id="SecondTab" class="inactive">
+							<div class="toggle">
+								<div class="change ">ON</div>
+							</div>
+						</div>
+						<div id="ThirdTab" class="inactive">
+							<input type="text" list="languages">
+						</div>
+						
+						<div id="FourthTab" class="inactive">
+							<div id="googleMap" style="width:100%;height:400px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

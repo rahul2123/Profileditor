@@ -1,0 +1,271 @@
+body{
+	font-size: 16px;
+	font-family: Helvetica,Arial,Serif;
+	background: url('../images/postgrad.jpg')fixed;
+color: #fff;
+}
+
+.content{
+	width: 90%;
+	clear: both;
+	background: rgba(0,0,0,0.5);
+	margin: auto;
+	margin-top: 5%;
+	padding: 1%;
+	
+	
+
+}
+h2{
+	font-size: 2em;
+}
+h1{
+	font-size: 4em;
+margin-top: -8%;
+}
+.header {
+	
+    position: fixed;
+    top: 0;
+    left: 0;
+	width: 100%;
+   background: linear-gradient(to bottom, rgba(48,48,48,1) 0%, rgba(64,64,64,1) 0%, rgba(56,56,56,1) 5%, rgba(46,46,46,1) 18%, rgba(28,28,28,1) 28%, rgba(0,0,0,1) 51%, rgba(10,10,10,1) 69%, rgba(18,18,18,1) 91%, rgba(10,10,10,1) 100%);
+	
+}
+ul{
+	padding: 0;
+}
+.container ul li a{
+	color: #fff;
+	text-decoration: none;
+}
+ ul li{
+
+
+	text-align: center;
+	display: inline-block;
+margin : 0 5%;
+}
+
+
+.header .menu img{
+	border:none;
+	margin:auto;
+	width:3em;
+	display: block;
+
+}
+.menu{
+
+margin:auto;
+width: 30%;
+}
+.active{
+	color:#899549;
+	
+}
+
+
+.header .menu img:hover{
+	width: 4em;
+}
+
+.groupdetails{
+	
+	width: 50%;
+	margin:auto;
+	margin-top: 5%;
+	background: #3E4A3B;
+	padding: 1%;
+	box-sizing: border-box;
+}
+label{
+	font-size: 1.5em;
+	display: block;
+}
+.toggle{
+			box-sizing: border-box;
+			background:red;
+			width:80px;
+			height:23px;
+			border-radius: 5px;
+		}
+		.change{ 
+			cursor: pointer;
+			text-align: center;
+			color: white;
+		padding:1%; 
+			float:left;
+			width:50%;
+			background:black;
+			height:22px;
+			border-radius:5px;
+		}
+
+#sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 15%;
+    float: left;
+ margin-right: 2%;
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 0;
+    
+    font-size: 1.2em;
+    width: 100%;
+    border: 1px solid red;
+  }
+  
+
+
+
+.sort{
+	width:100%;
+	overflow: hidden;
+}
+
+
+
+
+@media (min-width: 1025px) and (max-width: 1280px){
+	.menu{
+		width: 40%;
+	}
+	textarea{
+		width: 80%;
+	}
+}
+
+
+
+@media (min-width: 769px) and (max-width: 1024px){
+.menu{
+		width: 50%;
+	}	
+	.content{
+	margin-top: 10%;
+}
+textarea{
+		width: 80%;
+	}
+
+	#sortable1, #sortable2 {
+	width: 25%;
+}
+h1{
+	font-size: 3em;
+}
+}
+
+
+@media (min-width: 321px) and (max-width: 768px){
+	
+body{
+	background: url(../images/2.jpg) no-repeat ;
+	background-size: cover;
+}
+.content{
+	margin-top: 10%;
+}
+	.menu{
+		width: 90%;
+		
+		
+	}
+	.groupdetails{
+		width: 80%;
+		margin-top: 20%;
+	}
+	textarea{
+		width: 80%;
+	}
+
+		.content{
+		width:100%;
+		margin-top: 8%;
+	}
+
+
+ul{
+	margin: 2% auto;
+	width: 90%;
+}
+
+	.header .menu img{
+		width:3em;
+	}
+	.container ul li a{
+		font-size: 0.6em;
+	}
+	#sortable1, #sortable2 {
+	width: 45%;
+}
+h1{
+	font-size: 3em;
+	margin-top:-10%; 
+}
+
+}
+
+
+
+
+
+@media (max-width: 320px){
+body{
+	background: url(../images/dark_embroidery.png);
+}
+
+
+
+	.header .menu img{
+		width:1em ;
+	}
+
+	.posts{
+		width: 95%;
+		box-shadow: 0 0 1px 3px #000;
+		padding: 2%;
+	}
+
+
+	.menu{
+		width: 90%;
+		float: none;
+		margin: auto;
+	}
+
+ul{
+	margin: 2% auto;
+	
+}
+
+	.header .menu img{
+		width:3em;
+	}
+	.container ul li a{
+		font-size: 0.6em;
+	}
+
+	.content{
+		width:100%;
+		margin-top: 20%;
+	}
+
+.groupdetails{
+	width: 90%;
+}
+#sortable1, #sortable2 {
+	width: 45%;
+}
+textarea{
+	width: 90%;
+}
+
+h1{
+	font-size: 2em;
+}
+}
+
+
+

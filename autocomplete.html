@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>jQuery UI Autocomplete functionality</title>
+      
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <!-- Javascript -->
+      <style>
+      .ui-helper-hidden-accessible { display:none; }
+      .ui-menu-item{
+      list-style-type:none;
+      }
+      span{
+      border:1px solid red;
+      padding: 0.5%;
+      }
+      .tags{
+      margin-top:1%;
+      }
+      body{
+      background:#666;
+      }
+      .close{
+      margin-left:1%;
+      }
+      </style>
+      <script>
+      $(document).ready(function() {
+      var i;
+      var text;
+      var addtext;
+      var availableTutorials = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+      ];
+      $( "#autocomplete-1" ).autocomplete({
+      source: availableTutorials
+      });
+
+
+
+      $('#submittag').click(function(event) {
+      text=$('#autocomplete-1').val();
+      var found=$.inArray(text, availableTutorials);
+      if(found>-1){
+      $('.tags').append("<span>"+text+"<img class='close' src='images/close.png' alt='close' width='15'></span");
+      for(i=0;i<availableTutorials.length;i++)
+      {
+      if(availableTutorials[i]==text)
+      {
+      
+      availableTutorials.splice(i,1);
+      
+      }
+      }
+      $('#autocomplete-1').val('');
+      }
+      
+      
+      
+      });
+
+//click function
+      $('.tags ').on('click', '.close', function(event) {
+      $(this).parent().remove();
+
+      addtext=$(this).parent().text();
+      availableTutorials.push(addtext);
+      availableTutorials.sort();
+      });
+
+
+//enter keypress function
+
+   $("#autocomplete-1").keydown(function (e) {
+  if (e.keyCode == 13) {
+     $("#submittag").click();
+  }
+});
+   
+
+//on click of item
+
+$("body").on('click', '.ui-menu-item', function(event) {
+     $("#submittag").click();
+   /* Act on the event */
+});
+      });
+      </script>
+   </head>
+   <body>
+      <!-- HTML -->
+      <div class="ui-widget">
+         
+         <label for="autocomplete-1">Tags: </label>
+         <input id="autocomplete-1" type="text">
+         <button id="submittag">submit</button>
+      </div>
+      <div class="tags"></div>
+   </body>
+</html>

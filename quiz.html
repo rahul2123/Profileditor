@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>::QUIZ::</title>
+    <link rel="stylesheet" href="css/quiz.css">
+    <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.frame.android.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.frame.js"></script>
+    <script src="js/mobiscroll.scroller.js"></script>
+    <script src="js/mobiscroll.util.datetime.js"></script>
+    <script src="js/mobiscroll.datetimebase.js"></script>
+    <script src="js/mobiscroll.datetime.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/home.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+    $(function () {
+    init();
+    function init() {
+    var demo, theme, mode, display, lang;
+    // Date & Time demo initialization
+    $('#demo_datetime').mobiscroll().datetime({
+    theme: 'android',     // Specify theme like: theme: 'ios' or omit setting to use default
+    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+    display: 'inline', // Specify display mode like: display: 'bottom' or omit setting to use default
+    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+    minDate: new Date(),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
+    maxDate: new Date(2050,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+    stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
+    });
+    }
+    
+    });
+    </script>
+  </head>
+  <body >
+                                
+
+         <div class="container">
+                                  
+                                  <div class="header">
+                                    <div class="menu">
+                                      <ul>
+                                        <li><a href="home.html"><img src="images/home.png" alt=""><strong>HOME</strong></a></li>
+                                        <li><a href="quiz.html"><img src="images/quiz.png" alt=""><strong   class="active">QUIZ</strong></a></li>
+                                        <li><a href="profile.html"><img src="images/profile1.png" alt=""><strong>PROFILE</strong></a></li>
+                                        <li><a href="form.html"><img src="images/form.png" alt=""><strong>FORM</strong></a></li>
+                                      </ul>
+                                      
+                                    </div>
+                                  </div>
+
+
+
+
+
+
+                                  <div class="content">
+                                    
+                                    <div class="autocomplete">
+                                     
+
+                                      <h2>Search For</h2>
+                                                                         <div class="ui-widget">
+                                           
+                                           <label for="autocomplete-1">Tags: </label>
+                                           <input id="autocomplete-1" type="text">
+                                           <button id="submittag">submit</button>
+                                        </div>
+                                        <div class="tags"></div>
+
+
+
+                                    </div>
+                                    
+                                    <div class="datetime">
+                                        <h2>SET DATE AND TIME</h2>
+                                        <input type="text" id="demo_datetime" />
+                                        <h3>Scroll to bottom</h3>
+                                    </div>
+                                    <div class="quizarea">
+                                    
+                                                    <h2>QUIZ</h2>
+                                                  <progress value="0" max="4"></progress>
+
+
+                                              <div class="quiz">
+                                                    
+                                                                        
+                                                                        <div class="questions">
+                                                                          <h4>Question1</h4>
+                                                                          <input  type="radio" name="answer1" value="1" ><strong >1</strong><br>
+                                                                          <input  type="radio" name="answer1" value="2" ><strong >2</strong><br>
+                                                                          <input  type="radio" name="answer1" value="3" ><strong >3</strong><br>
+                                                                          <input  type="radio" name="answer1" value="4" ><strong >4</strong><br>
+                                                                          <hr>
+                                                                        </div>
+                                                                        <div class="questions">
+                                                                          <h4>Question2</h4>
+                                                                          <input  type="radio" name="answer2" value="5" ><strong >5</strong><br>
+                                                                          <input  type="radio" name="answer2" value="6" ><strong >6</strong><br>
+                                                                          <input  type="radio" name="answer2" value="7" ><strong >7</strong><br>
+                                                                          <input  type="radio" name="answer2" value="8" ><strong >8</strong><br>
+                                                                          <hr>
+                                                                        </div>
+                                                                        <div class="questions">
+                                                                          <h4>Question3</h4>
+                                                                          <input  type="radio" name="answer3" value="9" ><strong >9</strong><br>
+                                                                          <input  type="radio" name="answer3" value="10" ><strong >10</strong><br>
+                                                                          <input  type="radio" name="answer3" value="11" ><strong >11</strong><br>
+                                                                          <input  type="radio" name="answer3" value="12" ><strong >12</strong><br>
+                                                                          <hr>
+                                                                        </div>
+                                                                        <div class="questions">
+                                                                          <h4>Question4</h4>
+                                                                          <input  type="radio" name="answer4" value="13" ><strong >13</strong><br>
+                                                                          <input  type="radio" name="answer4" value="14" ><strong >14</strong><br>
+                                                                          <input  type="radio" name="answer4" value="15" ><strong >15</strong><br>
+                                                                          <input  type="radio" name="answer4" value="16" ><strong >16</strong><br>
+                                                                          <hr>
+                                                                        </div>
+                                               </div>
+
+
+
+
+
+                                                                <button id="submit">SUBMIT</button>
+                                                                <button id="addquestion">ADD QUESTION</button>
+                                                                <button id="reset">RESET</button>
+
+
+
+                                                  <div class="addques" >
+                                                    <strong>Your Question</strong><br>
+                                                    <input type="text" id="newquest"  placeholder="Add your question here"><br>
+                                                    <strong>Set your choices</strong>
+                                                    <br>
+                                                    <input type="text" id="opt1" placeholder="option1">
+                                                    <input type="text" id="opt2" placeholder="option2"><br>
+                                                    <input type="text" id="opt3" placeholder="option3">
+                                                    <input type="text" id="opt4" placeholder="option4"><br>
+                                                    
+                                                    <strong>Choose right option</strong>
+                                                    <select name="options" id="options">
+                                                      <option value="1">1</option>
+                                                      <option value="2">2</option>
+                                                      <option value="3">3</option>
+                                                      <option value="4">4</option>
+                                                    </select>
+                                                    <br>
+                                                           <button id="addques">Submit</button>
+                                                  </div>
+
+
+
+
+
+
+                                  </div>
+                                </div>
+                                
+     </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
